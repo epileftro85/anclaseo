@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+eggs/
+*.egg
+
+# Virtual environment
+venv/
+.env/
+env/
+# Add other common virtual environment names if used, e.g., .venv, virtualenv
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Logs and databases
+*.log
+*.sqlite3
+db.sqlite3
+
+# Test and coverage
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter Notebook specific
+.ipynb_checkpoints/
+
+# Miscellaneous
+*.swp # Vim swap files
+*.bak # Backup files
+__pycache__/**
+.venv
