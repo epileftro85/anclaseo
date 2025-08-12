@@ -2,6 +2,7 @@
 import argparse
 import requests  # Importamos la nueva librería
 from src.converter import html_to_markdown
+import os
 
 def main():
     """
@@ -47,12 +48,6 @@ def main():
             
         print("✅ HTML obtenido correctamente.")
         
-        # Guardamos el contenido HTML sin procesar en un archivo separado
-        raw_html_file = args.output_file.replace('.md', '_raw.html')
-        with open(raw_html_file, 'w', encoding='utf-8') as raw_file:
-            raw_file.write(html_content)
-        print(f"🌐 Contenido HTML sin procesar guardado en: {raw_html_file}")
-        
         # El resto del código no cambia. La función de conversión se usa igual.
         print("DEBUG: Calling html_to_markdown with arguments:")
         print(f"HTML Content: {html_content[:100]}...")  # Print first 100 characters for brevity
@@ -61,10 +56,16 @@ def main():
             html_content=html_content
         )
 
-        with open(args.output_file, 'w', encoding='utf-8') as f:
+        # Ensure the 'output' directory exists
+        output_dir = 'output'
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Construct the full path for the output file
+        output_path = os.path.join(output_dir, args.output_file)
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(markdown_output)
-            
-        print(f"🚀 Conversión exitosa. Archivo guardado en: {args.output_file}")
+
+        print(f"🚀 Conversión exitosa. Archivo guardado en: {output_path}")
         if args.ignore_class:
             print(f"ℹ️  Clases ignoradas: {', '.join(args.ignore_class)}")
 

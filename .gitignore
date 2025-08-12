@@ -45,3 +45,4 @@ htmlcov/
 *.bak # Backup files
 __pycache__/**
 .venv
+output/
